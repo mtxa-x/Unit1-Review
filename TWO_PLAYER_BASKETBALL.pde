@@ -37,10 +37,12 @@ void setup() {
   twoLebronImage = loadImage("2lebron.png");
   
   // Initial player positions
-  player1X = 100;
-  player1Y = 450;
-  player2X = 600;
-  player2Y = 450;
+  player1X = 600;
+  player1Y = 488;
+  player2X = 100;
+  player2Y = 488;
+  
+  //300, 488
 }
 
 //==== Draw Function ====
@@ -117,9 +119,9 @@ void updatePlayers() {
   
   // Constrain to court boundaries
   player1X = constrain(player1X, 0, width-130);
-  player1Y = constrain(player1Y, 400, height-50);
+  player1Y = constrain(player1Y, 325, 325);
   player2X = constrain(player2X, 0, width-130);
-  player2Y = constrain(player2Y, 400, height-50);
+  player2Y = constrain(player2Y, 325, 325);
 }
 
 
