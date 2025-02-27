@@ -24,6 +24,10 @@ boolean sPressed = false;
 boolean aPressed = false;
 boolean dPressed = false;
 
+//GIF
+PImage[] gif;
+int numberOfFrames;
+
 //==== Setup Function ====
 void setup() {
   size(800, 600);
@@ -31,10 +35,7 @@ void setup() {
   frameRate(60);
   textAlign(CENTER, CENTER);
   
-  // Load images
-  backgroundImage = loadImage("background.png");
-  lebronImage = loadImage("lebron.png");
-  twoLebronImage = loadImage("2lebron.png");
+  imageinit();
   
   // Initial player positions
   player1X = 600;
@@ -42,7 +43,13 @@ void setup() {
   player2X = 100;
   player2Y = 488;
   
-  //300, 488
+  ballx = width/2;
+  bally = height/2;
+  balld = 40;
+  
+  //initalize speed ball
+  vx = 10;
+  vy = 10;
 }
 
 //==== Draw Function ====
@@ -90,6 +97,7 @@ void game() {
   // Background
   image(backgroundImage, 0, -100, 800, 600);
   court();
+  ball();
   
   // Update player positions
   updatePlayers();
@@ -122,6 +130,12 @@ void updatePlayers() {
   player1Y = constrain(player1Y, 325, 325);
   player2X = constrain(player2X, 0, width-130);
   player2Y = constrain(player2Y, 325, 325);
+  
+  //Rectangle on Player for Bouncing
+  fill(255, 0, 0, 0);
+  rect(player1X+67, player1Y+24, 60, 150);
+  rect(player2X+70, player2Y+24, 60, 150);
+  fill(255);
 }
 
 
