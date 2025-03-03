@@ -17,10 +17,14 @@ void ball(){
   // BOUNCING ! =========================================
   if (bally < balld/2 || bally > 504-balld/2) {
     vy = vy * -1;
+    bounce.rewind();
+    bounce.play();
   }
   
   if (ballx < balld/2 || ballx > width-balld/2) {
     vx = vx * -1;
+     bounce.rewind();
+    bounce.play();
   }
   
   // NEW CODE: Check ball collision with player rectangles
@@ -41,8 +45,12 @@ void ball(){
     // Bounce based on which side was hit
     if (abs(overlapLeft) == minOverlap || abs(overlapRight) == minOverlap) {
       vx = vx * -1; // Reverse horizontal direction
+       bounce.rewind();
+    bounce.play();
     } else {
       vy = vy * -1; // Reverse vertical direction
+       bounce.rewind();
+    bounce.play();
     }
   }
   
@@ -63,8 +71,12 @@ void ball(){
     // Bounce based on which side was hit
     if (abs(overlapLeft) == minOverlap || abs(overlapRight) == minOverlap) {
       vx = vx * -1; // Reverse horizontal direction
+       bounce.rewind();
+    bounce.play();
     } else {
       vy = vy * -1; // Reverse vertical direction
+       bounce.rewind();
+    bounce.play();
     }
   }
 
@@ -82,24 +94,32 @@ void ball(){
   if (ballx + balld/2 > 22 && ballx - balld/2 < 22 + 10 &&
       bally + balld/2 > 160 && bally - balld/2 < 160 + 330) {
     vx = vx * -1;
+     bounce.rewind();
+    bounce.play();
   }
   
   // Horizontal pole top left
   if (ballx + balld/2 > 22 && ballx - balld/2 < 22 + 73 &&
       bally + balld/2 > 180 && bally - balld/2 < 180 + 10) {
     vy = vy * -1;
+     bounce.rewind();
+    bounce.play();
   }
   
   // Horizontal pole middle left
   if (ballx + balld/2 > 22 && ballx - balld/2 < 22 + 73 &&
       bally + balld/2 > 235 && bally - balld/2 < 235 + 10) {
     vy = vy * -1;
+     bounce.rewind();
+    bounce.play();
   }
   
   // Vertical pole basket left
   if (ballx + balld/2 > 95 && ballx - balld/2 < 95 + 10 &&
       bally + balld/2 > 150 && bally - balld/2 < 150 + 125) {
     vx = vx * -1;
+     bounce.rewind();
+    bounce.play();
   }
   
   
@@ -109,36 +129,49 @@ void ball(){
   if (ballx + balld/2 > width-32 && ballx - balld/2 < width-32 + 10 &&
       bally + balld/2 > 160 && bally - balld/2 < 160 + 330) {
     vx = vx * -1;
+     bounce.rewind();
+    bounce.play();
   }
   
   // Horizontal pole top right
   if (ballx + balld/2 > width-95 && ballx - balld/2 < width-95 + 73 &&
       bally + balld/2 > 180 && bally - balld/2 < 180 + 10) {
     vy = vy * -1;
+     bounce.rewind();
+    bounce.play();
   }
   
   // Horizontal pole middle right
   if (ballx + balld/2 > width-95 && ballx - balld/2 < width-95 + 73 &&
       bally + balld/2 > 235 && bally - balld/2 < 235 + 10) {
     vy = vy * -1;
+     bounce.rewind();
+    bounce.play();
   }
   
   // Vertical pole basket right
   if (ballx + balld/2 > width-105 && ballx - balld/2 < width-105 + 10 &&
       bally + balld/2 > 150 && bally - balld/2 < 150 + 125) {
     vx = vx * -1;
+     bounce.rewind();
+    bounce.play();
   }
   
   // Hoop right
   if (ballx + balld/2 > width-155 && ballx - balld/2 < width-155 + 60 &&
       bally + balld/2 > 235 && bally - balld/2 < 235 + 10) {
     vy = vy * -1;
+     bounce.rewind();
+    bounce.play();
   }
   
   // Hoop left
   if (ballx + balld/2 > 95 && ballx - balld/2 < 95 + 60 &&
       bally + balld/2 > 235 && bally - balld/2 < 235 + 10) {
     vy = vy * -1;
+     bounce.rewind();
+    bounce.play();
+
   }
 
   // Keep ball within screen bounds
@@ -162,7 +195,8 @@ void ball(){
     canScoreLeft = false; // Prevent multiple scores until ball moves away
     
 
-    // playSound("score.mp3");
+    score.rewind();
+    score.play();
   }
   
   // Right hoop scoring detection (left player scores)
@@ -176,7 +210,8 @@ void ball(){
     canScoreRight = false; // Prevent multiple scores until ball moves away
     
   
-    // playSound("score.mp3");
+     score.rewind();
+    score.play();
   }
   
   // Reset scoring flags when ball moves away from hoops
